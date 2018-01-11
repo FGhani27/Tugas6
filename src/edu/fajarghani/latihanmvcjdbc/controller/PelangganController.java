@@ -39,11 +39,11 @@ public class PelangganController {
         if (nama.trim().equals("")) {
             JOptionPane.showMessageDialog(view, "Nama tidak boleh kosong");
         } else if (nama.length() > 255) {
-            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 255 karakter ea");
+            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 255 karakter");
         } else if (telepon.length() > 12) {
-            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 12 karakter ea");
+            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 12 karakter");
         } else if (!email.contains("@") || !email.contains(".")) {
-            JOptionPane.showMessageDialog(view, "Email Tidak Valid Bosqu");
+            JOptionPane.showMessageDialog(view, "Email Tidak Valid");
         } else {
 
             model.setNama(nama);
@@ -53,10 +53,10 @@ public class PelangganController {
 
             try {
                 model.insertPelanggan();
-                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Ditambahkan uwu");
+                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Ditambahkan");
                 model.resetPelanggan();
             } catch (PelangganException | HeadlessException | SQLException throwable) {
-                JOptionPane.showMessageDialog(view, new Object[]{"Terjadi Error di data base dengan pesan ", throwable.getMessage()});
+                JOptionPane.showMessageDialog(view, new Object[]{"Terjadi Error di database dengan pesan ", throwable.getMessage()});
             }
         }
 
@@ -65,7 +65,7 @@ public class PelangganController {
     public void updatePelanggan(PelangganView view) {
 
         if (0 == view.getTablePelanggan().getSelectedRowCount()) {
-            JOptionPane.showMessageDialog(view, "Silahkan seleksi baris data yang akan di ubah mamanx qwq");
+            JOptionPane.showMessageDialog(view, "Silahkan seleksi baris data yang akan di ubah");
             return;
         } else {
         }
@@ -80,11 +80,11 @@ public class PelangganController {
         if (nama.trim().equals("")) {
             JOptionPane.showMessageDialog(view, "Nama tidak boleh kosong");
         } else if (nama.length() > 255) {
-            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 255 karakter ea");
+            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 255 karakter");
         } else if (telepon.length() > 12) {
-            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 12 karakter ea");
+            JOptionPane.showMessageDialog(view, "Nama tidak boleh lebih dari 12 karakter");
         } else if (!email.contains("@") || !email.contains(".")) {
-            JOptionPane.showMessageDialog(view, "Email Tidak Valid Bosqu");
+            JOptionPane.showMessageDialog(view, "Email Tidak Valid");
         } else {
 
             model.setId(id);
@@ -95,7 +95,7 @@ public class PelangganController {
 
             try {
                 model.updatePelanggan();
-                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Diubah uwu");
+                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Diubah");
                 model.resetPelanggan();
             } catch (PelangganException | HeadlessException | SQLException throwable) {
                 JOptionPane.showMessageDialog(view, new Object[]{"Terjadi Error di data base dengan pesan ", throwable.getMessage()});
@@ -107,17 +107,17 @@ public class PelangganController {
     public void deletePelanggan(PelangganView view) {
         if (view.getTablePelanggan().getSelectedRowCount() == 0) {
 
-            JOptionPane.showMessageDialog(view, "Silahkan seleksi baris data yang akan di hapus mamanx qwq");
+            JOptionPane.showMessageDialog(view, "Silahkan seleksi baris data yang akan di hapus");
             return;
         }
 
-        if (JOptionPane.showConfirmDialog(view, "Cius mau di hapus ? ;w;") == JOptionPane.OK_OPTION) {
+        if (JOptionPane.showConfirmDialog(view, "Anda ingin menghapus data ?") == JOptionPane.OK_OPTION) {
             Integer id = Integer.parseInt(view.getTxtId().getText());
             model.setId(id);
 
             try {
                 model.deletePelanggan();
-                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Dihapus uwu");
+                JOptionPane.showMessageDialog(view, "Pelanggan Berhasil Dihapus");
                 model.resetPelanggan();
             } catch (PelangganException | HeadlessException | SQLException throwable) {
                 JOptionPane.showMessageDialog(view, new Object[]{"Terjadi Error di data base dengan pesan ", throwable.getMessage()});
